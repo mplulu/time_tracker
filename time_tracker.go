@@ -40,6 +40,7 @@ func (t *Tracker) OutputIfTooLong(duration time.Duration) {
 	sinceStart := time.Since(t.startDate)
 	if sinceStart > duration {
 		t.output()
+		fmt.Printf("track %s %s %s %s\n", t.name, t.code, "finished", sinceStart.String())
 	}
 }
 
@@ -50,6 +51,7 @@ func (t *Tracker) output() {
 		fmt.Printf("track %s %s %s %s\n", t.name, t.code, entry.code, entry.startDate.Sub(lastDate).String())
 		lastDate = entry.startDate
 	}
+
 }
 
 var letters = []rune("abcdefghijklmnopqrstuvwxyz1234567890")
