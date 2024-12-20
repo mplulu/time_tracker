@@ -36,6 +36,10 @@ func (t *Tracker) Track(format string, a ...interface{}) {
 	t.entries = append(t.entries, entry)
 }
 
+func (t *Tracker) Code() string {
+	return t.code
+}
+
 func (t *Tracker) OutputIfTooLong(duration time.Duration) {
 	sinceStart := time.Since(t.startDate)
 	if sinceStart > duration {
